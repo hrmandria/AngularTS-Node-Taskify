@@ -1,0 +1,21 @@
+div.container.main{
+  margin-top: 50px;
+}
+
+div.container.comments{
+  margin-bottom: 150px;
+  margin-top: 50px;
+  div.comments div.row{
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+div.control button.btn{
+  margin: 5px;
+}
+
+div.galery div.row div.col img{
+  max-width: 250px;
+}

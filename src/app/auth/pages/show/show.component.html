@@ -1,0 +1,93 @@
+<div
+  class="container main text-center d-flex justify-content-center flex-column"
+>
+  <h1>
+    {{ currentPost?.title }}
+  </h1>
+  <audio
+    id="audio"
+    src="http://localhost:8080/{{ currentPost?.song }}"
+    autoplay
+  ></audio>
+  <div class="control">
+    <button class="btn btn-outline-dark" (click)="play()">
+      <i class="fa fa-play"></i>
+    </button>
+    <button class="btn btn-outline-dark" (click)="stop()">
+      <i class="fa fa-stop"></i>
+    </button>
+  </div>
+  <br /><br />
+  <div style="width: 100%" class="d-flex justify-content-center">
+    <p style="max-width: 250px">{{ currentPost?.details }}</p>
+  </div>
+  <br />
+  <div class="galery">
+    <div class="row">
+      <div class="col" *ngFor="let p of currentPost?.photos">
+        <a
+          href="#modal"
+          data-bs-toggle="modal"
+          data-bs-target="#modal"
+          (click)="changeImage('http://localhost:8080/' + p)"
+        >
+          <img src="http://localhost:8080/{{ p }}" alt="" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container comments">
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Entrer Les Tâches Que Vous Avez Effectués</label
+    >
+    <textarea
+      [(ngModel)]="comment"
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      rows="3"
+    ></textarea>
+  </div>
+  <div class="mb-3">
+    <div class="btn btn-primary" (click)="postComment()">tâches éffectué</div>
+  </div>
+  <br />
+  <hr />
+
+  <div class="comments">
+    <div class="row" *ngFor="let comment of currentPost?.comments">
+      <div class="card" style="width: 69rem">
+        <div class="card-body">
+          <h5 class="card-title">
+            <img
+              src="{{
+                comment.user.photo
+                  ? 'http://localhost:8080/' + comment.user.photo
+                  : '../../../../assets/pexels-janik-butz-5366526.jpg'
+              }}"
+              alt=""
+              style="width: 50px; height: 50px; border-radius: 50px"
+            />
+            {{ comment.user.username }}
+          </h5>
+          <p class="card-text">
+            {{ comment.content }}
+          </p>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ comment.date | date: "dd/MM/yyyy hh:mm" }}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <img src="{{ currentImage }}" alt="" />
+    </div>
+  </div>
+</div>

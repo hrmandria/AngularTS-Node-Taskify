@@ -1,0 +1,85 @@
+<div class="container">
+  <h1 class="text-center"><i class="fa fa-book"></i> Taskify</h1>
+  <br /><br />
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4><i class="fa fa-user"></i> Se connecter</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (submit)="login()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                id="email"
+                placeholder="nom@exemple.com"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                id="password"
+                placeholder="mot de passe"
+              />
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary btn-sm">
+                Connexion
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4><i class="fa fa-user-plus"></i> S'inscrire</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="subscribeForm" (submit)="subscribe()">
+            <div class="mb-3">
+              <label for="sub-email" class="form-label">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                id="sub-email"
+                placeholder="nom@exemple.com"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="sub-password" class="form-label">Mot de passe</label>
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                id="sub-password"
+                placeholder="mot de passe"
+              />
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary btn-sm">
+                Inscription
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="info">
+      <h6 class="adjust" >RANDRIANIRINA Mamy Mialisoa  IMTICIA 3  N°3  </h6>
+      <h6 class="separate">|  &nbsp; </h6>
+      <h6 > HERIMANDIMBY Andrianina  IMTICIA 3  N°13</h6>
+    </div>
+  </div>
+</div>

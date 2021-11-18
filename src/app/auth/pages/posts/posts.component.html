@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <a class="btn btn-primary" type="button" routerLink="/auth/new-post"
+      ><i class="fa fa-plus"></i
+    ></a>
+  </div>
+  <h4>Listes Des Tâches.</h4>
+  <br /><br />
+  <div class="row">
+    <div class="col-md-6" *ngFor="let p of posts">
+      <div class="card" style="width: 100%">
+        <img
+          src="{{
+            p.photos[0]
+              ? 'http://localhost:8080/' + p.photos[0]
+              : '../../../../assets/pexels-janik-butz-5366526.jpg'
+          }}"
+          class="card-img-top"
+          style="height: 280px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ p.title }}</h5>
+          <p
+            style="max-width: 150px"
+            class="d-inline-block card-text text-truncate"
+          >
+            {{ p.details }}
+          </p>
+          <br />
+          <a routerLink="/auth/post/{{ p._id }}" class="btn btn-primary"
+            ><i class="fa fa-eye"></i
+          ></a>
+          <a routerLink="/auth/update/{{ p._id }}" class="btn btn-success"
+            ><i class="fa fa-edit"></i
+          ></a>
+          <a (click)="remove(p._id)" class="btn btn-danger"
+            ><i class="fa fa-trash-alt"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

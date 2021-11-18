@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <h4>Resultat pour :</h4>
+  <br/><br/>
+  <div class="row">
+
+    <div class="col-md-6" *ngFor="let p of posts">
+      <div class="card" style="width: 100%;">
+        <img src="{{ (p.photos[0]) ? 'http://localhost:8080/' + p.photos[0] : '../../../../assets/pexels-janik-butz-5366526.jpg'}}" class="card-img-top" style="height: 280px;">
+        <div class="card-body">
+          <h5 class="card-title">{{p.title}}</h5>
+          <p style="max-width: 150px;" class="d-inline-block card-text text-truncate">
+            {{p.details}}
+          </p>7
+          <br>
+          <a routerLink="/auth/post/{{p._id}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

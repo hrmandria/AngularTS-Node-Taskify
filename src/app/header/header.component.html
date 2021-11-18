@@ -1,0 +1,13 @@
+<div class="header">
+  <div id="bg"></div>
+  <div id="filter">
+    <div class="container d-flex justify-content-center align-items-center">
+      <div class="input-group" style="max-width: 450px">
+        <input [(ngModel)]="q" type="text" class="form-control" placeholder="Search">
+        <a routerLink="/auth/search/{{q}}" class="btn btn-outline-light">
+          <i class="fa fa-search"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
